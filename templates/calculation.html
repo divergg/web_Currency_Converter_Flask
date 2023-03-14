@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+    Calculation page
+{% endblock %}
+
+<style>
+  .form-control{
+    --form-select-padding-x: 1000000000
+  }
+</style>
+
+{% block body %}
+  <div class="content-section">
+    <form method="post">
+      {{ context.form.hidden_tag() }}
+      <fieldset class="form_group">
+        <div class="form_section">
+          {{ context.form.choose_from_currency.label }}
+          {{ context.form.choose_from_currency (class="form-control form-control-sm")}}
+          {{ context.form.choose_to_currency.label }}
+          {{ context.form.choose_to_currency (class="form-control form-control-sm")}}
+        </div>
+        <div class="form_section">
+          {{ context.form.from_currency.label }}
+          {{ context.form.from_currency (class="form-control form-control-sm")}}
+        </div>
+      </fieldset>
+      <div class = "form_section">
+        <br>
+        {{ context.form.submit(class="btn btn-outline-primary btn-sm") }}
+      </div>
+    </form>
+     <br>
+    <p>RESULT - {{ context.result }}</p>
+  </div>
+{% endblock %}
